@@ -27,6 +27,6 @@ s_d=$start_date
 
 while [[ $s_d != $(date -I -d "$end_date +1 day") ]]
 do
-	nice zgrep -E "$query_string" /[directory_path]]/$(date -d $d +%Y)/$(date -d $d +%m)/$(date -d $d +%d) | tee $output_file
+	nice zgrep -E "$query_string" /[directory_path]]/$(date -d $s_d +%Y)/$(date -d $s_d +%m)/$(date -d $s_d +%d) | tee $output_file
 	s_d=$(date -I -d "$s_d + 1 day")
 done
